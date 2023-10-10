@@ -8,7 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is HTML</h1>
-    <h2><%= text %></h2>
+    <h1 class='mb-4'>My Blogs</h1>
+    <a herf='/article/create' class='btn btn-success'>Create Article</a>
+
+    <% articles.forEach(article => { %>
+        <div class="card mt-4">
+            <%= article.title %>
+        </div>
+
+    <% }) %>
 </body>
 </html>

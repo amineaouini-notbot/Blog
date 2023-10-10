@@ -6,7 +6,16 @@ app.set("view engine", "ejs")
 app.use('/articles', articlesRouter);
 
 app.get('/', (req, res)=>{
-    res.render("index", {text: 'rendering objects test!'})
+    let articles = [{
+        title: 'Test Blog 0',
+        date: Date.now(),
+        descriprion: 'Test Description 0'
+    },{
+        title: 'Test Blog 1',
+        date: Date.now(),
+        descriprion: 'Test Description 1'
+    }]
+    res.render("index", {articles})
 })
 
 app.listen(5000, ()=>{console.log("server intiated!")})
