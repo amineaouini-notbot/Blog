@@ -8,14 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class='mb-4'>My Blogs</h1>
-    <a herf='/article/create' class='btn btn-success'>Create Article</a>
+    <div class="container">
 
-    <% articles.forEach(article => { %>
-        <div class="card mt-4">
-            <%= article.title %>
-        </div>
-
-    <% }) %>
+        <h1 class='mb-4'>My Blogs</h1>
+        <a href='/articles/create' class='btn btn-success'>Create Article</a>
+    
+        <% articles.forEach(article => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <p class="card-subtitle text-muted mb-2">
+                        <%= article.date.toLocaleDateString() %>    
+                    </p>
+                    <p class="card-text mb-2">
+                        <%= article.description %>
+                    </p>
+                </div>
+                
+            </div>
+    
+        <% }) %>
+    </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
 const express = require('express');
 const router = require('express').Router();
 
-router.get('/', (req, res)=> {
+router.get('/create', (req, res)=> {
 
-    res.send('In Articles');
+    res.render('articles/create');
 });
 
 module.exports = router;
