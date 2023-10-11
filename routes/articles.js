@@ -45,8 +45,10 @@ router.delete('/:id', async (req, res) => {
 
 })
 
-router.put('/edit/:id', (req, res)=>{
-
+router.put('/edit/:id', async (req, res)=>{
+    const updateArticle = req.body
+    const updatedArticle = await Article.findByIdAndUpdate(req.params.id, updateArticle)
+    res.redirect(`/articles/${req.params.id}`)
 })
 
 module.exports = router;
