@@ -3,4 +3,4 @@
       "src": "./server.js",
       "use": "@vercel/node"
     }
-  ], "rewrites": [{ "src": "/(.*)", "dest": "/" }] }
+  ], "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
