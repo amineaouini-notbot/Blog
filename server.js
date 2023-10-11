@@ -25,5 +25,5 @@ app.get('/', async (req, res)=>{
     })
     res.render("index", {articles})
 })
-
-app.listen(5000, ()=>{console.log("server intiated!")})
+const PORT = process.env.PORT || 5000
+app.listen(PORT, ()=>{console.log("server intiated!")})
