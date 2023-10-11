@@ -4,8 +4,7 @@ const app = express()
 const articlesRouter = require('./routes/articles')
 
 mongoose.connect('mongodb://localhost/blog' )
-
-
+app.use(express.urlencoded({ extended: false}))
 
 app.set("view engine", "ejs")
 
