@@ -3,9 +3,12 @@ const mongoose = require('mongoose')
 const app = express()
 const articlesRouter = require('./routes/articles')
 const article = require('./models/article')
+const methodOverride = require('method-override')
 
 mongoose.connect('mongodb://localhost/blog' )
+
 app.use(express.urlencoded({ extended: false}))
+app.use(methodOverride('_method'))
 
 app.set("view engine", "ejs")
 

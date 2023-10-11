@@ -1,5 +1,6 @@
 const express = require('express');
-const Article = require('../models/article')
+const Article = require('../models/article');
+const article = require('../models/article');
 const router = require('express').Router();
 
 router.get('/create', (req, res)=> {
@@ -28,6 +29,13 @@ router.post('/', async (req, res) => {
     } catch ( err ) { 
         res.render('/articles/create', {article})    
     }
+})
+
+router.delete('/:id', async (req, res) => {
+    
+    await article.findByIdAndDelete(req.params.id)
+    res.redirect('/')
+
 })
 
 module.exports = router;
