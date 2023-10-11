@@ -23,7 +23,7 @@ app.get('/', async (req, res)=>{
     .sort({
         date: 'desc'
     })
-    res.render("index", {articles})
+    res.render("index", {articles}).end()
 })
 const PORT = process.env.PORT || 5000
 app.listen(PORT, ()=>{console.log("server intiated!")})
