@@ -4,8 +4,12 @@ const app = express()
 const articlesRouter = require('./routes/articles')
 const article = require('./models/article')
 const methodOverride = require('method-override')
+require('dotenv').config()
+// 'mongodb://localhost/blog'
 
-mongoose.connect('mongodb://localhost/blog' )
+mongoose.connect(process.env.MONGO_DB)
+.then(()=> console.log('DB Connected'))
+.catch(err => {throw err})
 
 app.use(express.urlencoded({ extended: false}))
 app.use(methodOverride('_method'))
