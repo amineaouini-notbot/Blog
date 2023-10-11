@@ -4,13 +4,20 @@ const router = require('express').Router();
 
 router.get('/create', (req, res)=> {
 
-    res.render('articles/create');
+    res.render('articles/create', {article: new Article()});
 });
+
+router.get('/:id', async (req, res) => {
+    const article =  await Article.findById(req.params. id); 
+    if (article == null) res.redirect("/")
+    // res.send(req.params.id)
+    res.render('articles/show', { article });
+} )
 
 router.post('/', async (req, res) => {
     const {title, markdown, description} = req.body
 
-    const article = new Article({
+    let article = new Article({
         title,
         markdown,
         description
