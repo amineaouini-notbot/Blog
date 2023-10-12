@@ -19,11 +19,11 @@ app.set("view engine", "ejs")
 app.use('/articles', articlesRouter);
 
 app.get('/', async (req, res)=>{
-    // let articles = await article.find()
-    // .sort({
-    //     date: 'desc'
-    // })
-    res.render("index", {articles :{}})
+    let articles = await article.find()
+    .sort({
+        date: 'desc'
+    })
+    res.render("index", {articles})
 })
 const PORT = process.env.PORT || 5000
-app.listen(PORT, ()=>{console.log("server intiated!")})
+app.listen(3000, ()=>{console.log("server intiated!")})
